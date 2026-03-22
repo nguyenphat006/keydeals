@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { CategorySlug } from '@/types';
-import { HERO_SLIDES, getFlashSaleProducts, getFeaturedProducts, getProductsByCategory } from '@/lib/mockData';
+import { getFlashSaleProducts, getFeaturedProducts, getProductsByCategory } from '@/lib/mockData';
 import Hero from './components/Hero';
 import Categories from './components/Categories';
 import FlashSale from './components/FlashSale';
@@ -19,7 +19,7 @@ export default function LandingHome() {
   return (
     <div className="space-y-10">
       {/* Hero Slider */}
-      <Hero slides={HERO_SLIDES} />
+      <Hero />
 
       {/* Trust Bar */}
       <TrustBar />
