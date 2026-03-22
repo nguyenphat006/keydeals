@@ -152,3 +152,207 @@
     @apply font-sans;
   }
 }
+
+/* ─── Animations ─── */
+@keyframes floating-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px hsl(320 100% 60% / 0.3), 0 0 15px hsl(320 100% 60% / 0.2); }
+  50% { box-shadow: 0 0 20px hsl(320 100% 60% / 0.6), 0 0 40px hsl(320 100% 60% / 0.4); }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: hsl(180 100% 50% / 0.3); }
+  50% { border-color: hsl(180 100% 50% / 0.8); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-2%, -2%); }
+}
+
+.animate-floating-orb {
+  animation: floating-orb 8s ease-in-out infinite;
+}
+
+.animate-floating-orb-delayed {
+  animation: floating-orb 10s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-shine {
+  animation: shine 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(0 0% 100% / 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out infinite alternate;
+}
+
+/* ─── Particle/Orb Effects ─── */
+.orb-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.orb-cyan {
+  background: hsl(180 100% 50%);
+}
+
+.orb-pink {
+  background: hsl(320 100% 60%);
+}
+
+.orb-purple {
+  background: hsl(258 24% 28%);
+}
+
+/* ─── Glare Effect ─── */
+.glare-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glare {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    hsl(0 0% 100% / 0.05) 40%,
+    hsl(0 0% 100% / 0.1) 50%,
+    hsl(0 0% 100% / 0.05) 60%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+}
+
+/* ─── Neon Text ─── */
+.text-neon-cyan {
+  color: hsl(180 100% 50%);
+  text-shadow: 0 0 10px hsl(180 100% 50% / 0.5), 0 0 20px hsl(180 100% 50% / 0.3);
+}
+
+.text-neon-pink {
+  color: hsl(320 100% 60%);
+  text-shadow: 0 0 10px hsl(320 100% 60% / 0.5), 0 0 20px hsl(320 100% 60% / 0.3);
+}
+
+/* ─── Cyber Button Glow ─── */
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    hsl(180 100% 50% / 0.2) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.cyber-button:hover::before {
+  transform: translateX(100%);
+}
+
+/* ─── Custom Scrollbar ─── */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: hsl(260 30% 8%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(258 24% 28%);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(258 24% 38%);
+}
+
+/* ─── Selection Color ─── */
+::selection {
+  background: hsl(180 100% 50% / 0.3);
+  color: hsl(0 0% 100%);
+}
