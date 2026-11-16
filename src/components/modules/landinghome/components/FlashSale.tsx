@@ -6,7 +6,6 @@ import type { Product } from '@/types';
 import { useCountdown } from '../hooks/useCountdown';
 import { GameCard } from '@/components/shared/ProductCard';
 import { AccountCard } from '@/components/shared/ProductCard';
-import SectionHeader from './SectionHeader';
 import { useInView } from '@/hooks/useInView';
 
 interface FlashSaleProps {
@@ -54,14 +53,14 @@ function FlipDigit({ value, isUrgent }: { value: number; isUrgent: boolean }) {
 }
 
 export default function FlashSale({ products }: FlashSaleProps) {
+  const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
+
   if (products.length === 0) return null;
 
   const nearestEnd = products
     .map((p) => p.flashSaleEndsAt)
     .filter(Boolean)
     .sort()[0];
-
-  const [ref, isInView] = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
 
   return (
     <section>

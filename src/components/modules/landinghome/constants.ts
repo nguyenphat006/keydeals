@@ -1,8 +1,9 @@
 export const HERO_SLIDES = [
   {
     id: '1',
+    // Using a remote realistic banner placeholder if possible, or keeping the local banner
     image: '/images/base/banner.webp',
-    badge: 'HOT DEAL',
+    badge: 'XU HƯỚNG',
     title: 'GOLD NARAKA',
     subtitle: 'Chuyên cung cấp các sản phẩm game tiện ích, uy tín',
     ctaText: 'MUA NGAY',
@@ -58,5 +59,32 @@ export const HERO_CATEGORIES = [
     image: '/images/base/product.jpg',
     title: 'Tiện Ích Giải Trí 20K/Tháng',
     link: '/category/entertainment',
+  },
+];
+
+export const TRUST_CATEGORIES = [
+  {
+    id: 'tc-1',
+    label: 'Cày Thuê Uy Tín',
+    iconClass: '🎮',
+    link: '/category/boost',
+  },
+  {
+    id: 'tc-2',
+    label: 'Netflix Premium',
+    iconClass: '🎬',
+    link: '/category/netflix',
+  },
+  {
+    id: 'tc-3',
+    label: 'Office Bản Quyền',
+    iconClass: '💼',
+    link: '/category/office',
+  },
+  {
+    id: 'tc-4',
+    label: 'Tiện ích AI',
+    iconClass: '🤖',
+    link: '/category/ai-tools',
   },
 ];
